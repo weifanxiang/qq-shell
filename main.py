@@ -11,9 +11,14 @@ import subprocess
 from model.command import Command
 import yaml
 import os
+
+
+if __name__ == '__main__':
+    with open('config.yml', 'r') as f:
+        config = yaml.safe_load(f.read())
+
+
 loop = asyncio.get_event_loop()
-with open('config.yml', 'r') as f:
-    config = yaml.safe_load(f.read())
 bcc = Broadcast(loop=loop)
 
 app = GraiaMiraiApplication(
@@ -33,7 +38,7 @@ inc = InterruptControl(bcc)
 
 
 async def exec_command(msg, some, *member):
-    message = str(Command(msg))
+    message = str(Command(msg, config))
     send_message = MessageChain.create([Plain(message)])
     if member[0] != ():
         await app.sendGroupMessage(some, send_message)
