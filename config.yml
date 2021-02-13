@@ -1,0 +1,16 @@
+connect_mirai:
+    host: http://localhost
+    port: 8080
+    authKey: sjdfoajdiojfgojafofijgoajfgioj
+    account: 2324523071
+    websocket: True
+bot:
+    timeout: 600
+    master: 1958731779
+    feedback:
+        permission_denied: 对不起，您没有权限执行此命令
+        command_executed_successfully: 命令执行成功！输出为:/hh{out}
+        command_execution_failed: 命令执行失败，错误为:/hh{err}
+        execute_the_command_cd: 切换目录成功！当前目录为:{pwd}
+        execute_the_command_pwd: 获取工作目录成功！当前目录为:{pwd}
+        command_timeout: 命令运行超时！禁止运行耗时指令（若一定要运行，请使用后台任务）！或请检查配置文件中的超时设置！
